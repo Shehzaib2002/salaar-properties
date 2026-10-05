@@ -6,96 +6,98 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       {/* 1. HERO SECTION */}
-      <section className="relative h-[90vh] min-h-[700px] w-full flex items-center justify-center overflow-hidden">
+      <section className="relative h-[92vh] min-h-[720px] w-full flex items-center justify-center">
         {/* Background Video/Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <Image 
             src="/hero_background.jpg"
             alt="Luxury Real Estate in Lahore"
             fill
-            className="object-cover scale-105 animate-[slow-zoom_20s_ease-in-out_infinite_alternate] brightness-[0.65]"
+            className="object-cover scale-105 animate-[slow-zoom_20s_ease-in-out_infinite_alternate] brightness-[0.7]"
             priority
           />
+          {/* Rich luxury gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/40 to-black/85" />
         </div>
         
-        <div className="relative z-10 container mx-auto px-6 max-w-[1400px] flex flex-col items-start mt-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs uppercase tracking-[0.2em] mb-8">
-            <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+        <div className="relative z-10 container mx-auto px-6 max-w-[1400px] flex flex-col items-start mt-16 mb-28">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-black/40 backdrop-blur-md border border-[#c5a880]/50 text-[#c5a880] text-xs uppercase tracking-[0.25em] mb-8 shadow-md">
+            <span className="w-1.5 h-1.5 bg-[#c5a880] rounded-full animate-pulse"></span>
             Exclusive Lahore Properties
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-light tracking-tight text-white leading-[1.1] mb-8 drop-shadow-2xl">
             Redefining <br className="hidden md:block"/>
-            <span className="font-medium">Luxury Living</span>
+            <span className="font-medium text-white">Luxury Living</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-white/80 max-w-xl mb-12 font-light leading-relaxed drop-shadow-md">
-            Discover Lahore's most prestigious addresses. From DHA's ultra-luxury villas to vertical grandeur at One Canal Road.
+          <p className="text-lg md:text-xl text-white/85 max-w-xl mb-12 font-light leading-relaxed drop-shadow-md">
+            Discover Lahore&apos;s most prestigious addresses. From DHA&apos;s ultra-luxury villas to vertical grandeur at One Canal Road.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-5">
-            <Link href="/projects" className="bg-white text-brand px-10 py-5 text-sm font-semibold tracking-wider hover:bg-white/90 transition-all duration-300 flex items-center justify-center gap-3 group">
+            <Link href="/projects" className="bg-[#c5a880] text-[#0b0f17] px-10 py-5 text-xs uppercase tracking-widest font-semibold hover:bg-[#d8bb94] transition-all duration-300 flex items-center justify-center gap-3 group shadow-xl">
               Explore Portfolio
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <button className="bg-transparent text-white border border-white/30 backdrop-blur-sm px-10 py-5 text-sm font-semibold tracking-wider hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3 group">
-              <Play size={16} className="fill-white" />
+            <button className="bg-white/10 text-white border border-white/30 backdrop-blur-md px-10 py-5 text-xs uppercase tracking-widest font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3 group">
+              <Play size={15} className="fill-white" />
               Watch Brand Film
             </button>
           </div>
         </div>
-
-        {/* Floating Search Bar (Glassmorphism) */}
-        <div className="absolute bottom-10 left-0 right-0 z-20 px-6">
-          <div className="container mx-auto max-w-[1400px]">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 flex flex-col md:flex-row gap-6 items-end">
-              <div className="flex-1 w-full relative">
-                <MapPin className="absolute left-0 bottom-3 text-white/50" size={20} />
-                <label className="block text-xs font-semibold uppercase tracking-[0.15em] text-white/70 mb-3 ml-8">Location</label>
-                <select className="w-full border-b border-white/30 py-2 text-white focus:outline-none bg-transparent appearance-none ml-8 font-light text-lg">
-                  <option className="text-brand">DHA Lahore</option>
-                  <option className="text-brand">Gulberg</option>
-                  <option className="text-brand">Bahria Town</option>
-                  <option className="text-brand">Johar Town</option>
-                </select>
-              </div>
-              <div className="w-px h-12 bg-white/20 hidden md:block"></div>
-              <div className="flex-1 w-full relative">
-                <Building className="absolute left-0 bottom-3 text-white/50" size={20} />
-                <label className="block text-xs font-semibold uppercase tracking-[0.15em] text-white/70 mb-3 ml-8">Property Type</label>
-                <select className="w-full border-b border-white/30 py-2 text-white focus:outline-none bg-transparent appearance-none ml-8 font-light text-lg">
-                  <option className="text-brand">High-Rise Apartment</option>
-                  <option className="text-brand">Luxury Villa</option>
-                  <option className="text-brand">Commercial Space</option>
-                </select>
-              </div>
-              <button className="bg-brand text-white px-10 py-4 h-[60px] hover:bg-brand/90 transition-all flex items-center justify-center gap-3 shrink-0">
-                <Search size={18} />
-                <span className="text-sm font-semibold tracking-wider">Find Property</span>
-              </button>
-            </div>
-          </div>
-        </div>
       </section>
 
+      {/* Floating Search Bar (Luxury Console) */}
+      <div className="relative z-20 px-6 -mt-24 md:-mt-12 lg:-mt-16 mb-12">
+        <div className="container mx-auto max-w-[1400px]">
+          <div className="bg-white border border-slate-200/80 p-6 md:p-8 flex flex-col md:flex-row gap-6 items-end shadow-[0_25px_60px_rgba(11,15,23,0.14)]">
+            <div className="flex-1 w-full relative">
+              <MapPin className="absolute left-0 bottom-3 text-[#c5a880]" size={20} />
+              <label className="block text-xs font-semibold uppercase tracking-[0.18em] text-[#8c734b] mb-3 ml-8">Location</label>
+              <select className="w-full border-b border-border py-2 text-brand focus:outline-none focus:border-[#c5a880] bg-transparent appearance-none ml-8 font-medium text-base">
+                <option className="text-brand">DHA Lahore</option>
+                <option className="text-brand">Gulberg</option>
+                <option className="text-brand">Bahria Town</option>
+                <option className="text-brand">Johar Town</option>
+              </select>
+            </div>
+            <div className="w-px h-12 bg-border hidden md:block"></div>
+            <div className="flex-1 w-full relative">
+              <Building className="absolute left-0 bottom-3 text-[#c5a880]" size={20} />
+              <label className="block text-xs font-semibold uppercase tracking-[0.18em] text-[#8c734b] mb-3 ml-8">Property Type</label>
+              <select className="w-full border-b border-border py-2 text-brand focus:outline-none focus:border-[#c5a880] bg-transparent appearance-none ml-8 font-medium text-base">
+                <option className="text-brand">High-Rise Apartment</option>
+                <option className="text-brand">Luxury Villa</option>
+                <option className="text-brand">Commercial Space</option>
+              </select>
+            </div>
+            <Link href="/projects" className="bg-[#0b0f17] hover:bg-[#c5a880] hover:text-[#0b0f17] text-white px-10 py-4 h-[56px] w-full md:w-auto transition-all duration-300 flex items-center justify-center gap-3 shrink-0 shadow-lg font-semibold uppercase tracking-widest text-xs">
+              <Search size={16} />
+              <span>Find Property</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* 2. STATS & TRUST BAR */}
-      <section className="border-b border-border bg-surface">
+      <section className="border-b border-border bg-surface pb-12 pt-4">
         <div className="container mx-auto px-6 max-w-[1400px]">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
             <div className="py-12 px-6 text-center">
-              <h3 className="text-4xl font-light text-brand mb-2">15+</h3>
+              <h3 className="text-4xl font-light text-brand mb-2"><span className="text-[#c5a880] font-normal">15</span>+</h3>
               <p className="text-xs uppercase tracking-widest text-muted font-medium">Years in Lahore</p>
             </div>
             <div className="py-12 px-6 text-center">
-              <h3 className="text-4xl font-light text-brand mb-2">40B</h3>
+              <h3 className="text-4xl font-light text-brand mb-2"><span className="text-[#c5a880] font-normal">40</span>B</h3>
               <p className="text-xs uppercase tracking-widest text-muted font-medium">PKR Delivered Value</p>
             </div>
             <div className="py-12 px-6 text-center">
-              <h3 className="text-4xl font-light text-brand mb-2">24/7</h3>
+              <h3 className="text-4xl font-light text-brand mb-2"><span className="text-[#c5a880] font-normal">24/7</span></h3>
               <p className="text-xs uppercase tracking-widest text-muted font-medium">Concierge Service</p>
             </div>
             <div className="py-12 px-6 text-center">
-              <h3 className="text-4xl font-light text-brand mb-2">100%</h3>
+              <h3 className="text-4xl font-light text-brand mb-2"><span className="text-[#c5a880] font-normal">100</span>%</h3>
               <p className="text-xs uppercase tracking-widest text-muted font-medium">LDA & DHA Approved</p>
             </div>
           </div>
@@ -134,7 +136,7 @@ export default function Home() {
             <div className="pt-6">
               <div className="flex justify-between items-start mb-3">
                 <h3 className="text-3xl font-light text-brand">One Canal Road</h3>
-                <span className="text-lg font-medium text-brand mt-1">From ₨ 150M</span>
+                <span className="text-lg font-medium text-brand mt-1">From â‚¨ 150M</span>
               </div>
               <p className="text-muted text-sm font-medium uppercase tracking-wider mb-5 flex items-center gap-2">
                 <MapPin size={14}/> Canal Bank Road, Lahore
@@ -170,7 +172,7 @@ export default function Home() {
             <div className="pt-6">
               <div className="flex justify-between items-start mb-3">
                 <h3 className="text-3xl font-light text-brand">Prism Signature Villas</h3>
-                <span className="text-lg font-medium text-brand mt-1">From ₨ 85M</span>
+                <span className="text-lg font-medium text-brand mt-1">From â‚¨ 85M</span>
               </div>
               <p className="text-muted text-sm font-medium uppercase tracking-wider mb-5 flex items-center gap-2">
                 <MapPin size={14}/> DHA Phase 9 Prism, Lahore
@@ -203,9 +205,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5">
               <div className="text-brand-foreground/50 text-xs font-semibold uppercase tracking-[0.2em] mb-6">The Salaar Standard</div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 leading-tight">Curating Lahore's Skyline</h2>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 leading-tight">Curating Lahore&apos;s Skyline</h2>
               <p className="text-brand-foreground/70 text-lg leading-relaxed mb-10 font-light">
-                We partner with Tier-1 developers like Union Developers and Izhar Monnoo to bring you investments that offer both unparalleled lifestyle and exceptional capital appreciation in Pakistan's cultural capital.
+                We partner with Tier-1 developers like Union Developers and Izhar Monnoo to bring you investments that offer both unparalleled lifestyle and exceptional capital appreciation in Pakistan&apos;s cultural capital.
               </p>
               <Link href="/about-us" className="inline-flex items-center gap-3 text-white font-semibold hover:opacity-70 transition-opacity uppercase tracking-widest text-sm border border-white/30 px-8 py-4">
                 Our Heritage <ArrowRight size={16} />
@@ -237,12 +239,124 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. EXPLORE COMMUNITIES */}
+      {/* 5. CUSTOMER FEEDBACK */}
+      <section className="section-spacing bg-background">
+        <div className="container mx-auto px-6 max-w-[1400px]">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted mb-4">Client Testimonials</div>
+            <h2 className="text-4xl md:text-5xl font-light text-brand">The Salaar Experience</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Testimonial 1 */}
+            <div className="bg-surface border border-border p-12 relative group hover:border-brand transition-colors">
+              <span className="text-6xl font-serif text-brand/10 absolute top-8 right-12 group-hover:text-brand/20 transition-colors">&ldquo;</span>
+              <div className="flex gap-1 text-brand mb-8">
+                {[1,2,3,4,5].map(star => <span key={star}>â˜…</span>)}
+              </div>
+              <p className="text-lg font-light text-brand leading-relaxed mb-10">
+                &ldquo;I&apos;ve rented through Salaar Properties for over a year. Maintenance is handled quickly, communication is clear, and I&apos;ve never had any issues. Highly recommended.&rdquo;
+              </p>
+              <div>
+                <h4 className="font-medium text-brand">Ayesha Khan</h4>
+                <p className="text-xs uppercase tracking-widest text-muted mt-1">Tenant</p>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-surface border border-border p-12 relative group hover:border-brand transition-colors">
+              <span className="text-6xl font-serif text-brand/10 absolute top-8 right-12 group-hover:text-brand/20 transition-colors">&ldquo;</span>
+              <div className="flex gap-1 text-brand mb-8">
+                {[1,2,3,4,5].map(star => <span key={star}>★</span>)}
+              </div>
+              <p className="text-lg font-light text-brand leading-relaxed mb-10">
+                &ldquo;From the first meeting to the final paperwork, Salaar Properties was professional and transparent. They made selling my property quick and entirely stress-free.&rdquo;
+              </p>
+              <div>
+                <h4 className="font-medium text-brand">Bilal Hussain</h4>
+                <p className="text-xs uppercase tracking-widest text-muted mt-1">Property Seller</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <button className="text-sm font-semibold uppercase tracking-wider text-brand border-b border-brand pb-1 hover:opacity-70 transition-opacity">
+              View All Reviews
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. MEET THE TEAM */}
+      <section className="section-spacing bg-surface border-t border-border">
+        <div className="container mx-auto px-6 max-w-[1400px]">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted mb-4 flex items-center gap-4">
+                <span className="w-8 h-px bg-muted/50"></span> Leadership
+              </div>
+              <h2 className="text-4xl md:text-5xl font-light text-brand leading-tight">The Visionaries <br/> Behind Salaar</h2>
+            </div>
+            <p className="text-muted text-lg font-light max-w-md pb-2">
+              Our team brings decades of combined expertise in Lahore&apos;s premium real estate market, committed to delivering exceptional results.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {/* Team Member 1 */}
+            <div className="group">
+              <div className="relative aspect-[3/4] bg-muted/10 mb-6 overflow-hidden">
+                <Image src="/hero_background.jpg" alt="Mian Ammar Mehmood" fill className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+              </div>
+              <h4 className="text-xl font-medium text-brand mb-1">Mian Ammar<br/>Mehmood</h4>
+              <p className="text-xs uppercase tracking-widest text-muted">CEO / Founder</p>
+            </div>
+            
+            {/* Team Member 2 */}
+            <div className="group md:mt-12">
+              <div className="relative aspect-[3/4] bg-muted/10 mb-6 overflow-hidden">
+                <Image src="/emirates_mall_residences.jpg" alt="Muhammad Arfan" fill className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+              </div>
+              <h4 className="text-xl font-medium text-brand mb-1">Muhammad<br/>Arfan</h4>
+              <p className="text-xs uppercase tracking-widest text-muted">GM</p>
+            </div>
+
+            {/* Team Member 3 */}
+            <div className="group">
+              <div className="relative aspect-[3/4] bg-muted/10 mb-6 overflow-hidden">
+                <Image src="/the_meridian_villas.jpg" alt="Sheikh Asadullah" fill className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+              </div>
+              <h4 className="text-xl font-medium text-brand mb-1">Sheikh<br/>Asadullah</h4>
+              <p className="text-xs uppercase tracking-widest text-muted">Senior Sales Advisor</p>
+            </div>
+
+            {/* Team Member 4 */}
+            <div className="group md:mt-12">
+              <div className="relative aspect-[3/4] bg-muted/10 mb-6 overflow-hidden">
+                <Image src="/hero_background.jpg" alt="Hassan Khan" fill className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+              </div>
+              <h4 className="text-xl font-medium text-brand mb-1">Hassan<br/>Khan</h4>
+              <p className="text-xs uppercase tracking-widest text-muted">Sales Advisor</p>
+            </div>
+
+            {/* Team Member 5 */}
+            <div className="group">
+              <div className="relative aspect-[3/4] bg-muted/10 mb-6 overflow-hidden">
+                <Image src="/emirates_mall_residences.jpg" alt="Mian Hamad Mahmood" fill className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+              </div>
+              <h4 className="text-xl font-medium text-brand mb-1">Mian Hamad<br/>Mahmood</h4>
+              <p className="text-xs uppercase tracking-widest text-muted">Sales Representative</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. EXPLORE COMMUNITIES */}
       <section className="section-spacing container mx-auto px-6 max-w-[1400px]">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted mb-4">Location Intelligence</div>
           <h2 className="text-4xl md:text-5xl font-light text-brand mb-6">Explore Key Neighborhoods</h2>
-          <p className="text-muted text-lg font-light">Find your perfect address in Lahore's most sought-after districts.</p>
+          <p className="text-muted text-lg font-light">Find your perfect address in Lahore&apos;s most sought-after districts.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

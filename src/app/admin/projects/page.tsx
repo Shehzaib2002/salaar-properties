@@ -1,4 +1,4 @@
-import { Plus, MoreVertical, Edit, Trash2 } from "lucide-react";
+import { Plus, MoreVertical } from "lucide-react";
 
 export default function AdminProjects() {
   return (

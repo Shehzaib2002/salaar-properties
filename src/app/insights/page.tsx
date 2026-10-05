@@ -1,29 +1,43 @@
+import type { Metadata } from "next";
+import { InsightsList } from "@/components/insights-list";
+
+export const metadata: Metadata = {
+  title: "Market Insights",
+  description: "Lahore real estate news, market reports, and investment guides from Salaar Properties â€” your source for data-driven property insights.",
+};
+
 export default function InsightsPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background pt-32 px-6">
-      <div className="container mx-auto max-w-[1400px]">
-        <h1 className="text-4xl md:text-5xl font-light text-brand mb-4">Market Insights</h1>
-        <p className="text-muted max-w-2xl mb-12">News, updates, and analysis of Lahore's real estate market.</p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="border border-border p-8 bg-surface">
-            <span className="text-xs font-semibold uppercase tracking-widest text-brand mb-2 block">Market Report</span>
-            <h3 className="text-2xl font-light text-brand mb-4">Why High-Rise Living is Surging in Lahore</h3>
-            <p className="text-muted text-sm font-light mb-6 line-clamp-3">
-              As land prices in central districts like Gulberg soar, vertical developments are offering unprecedented luxury and ROI for both local and overseas investors.
+    <div className="flex flex-col min-h-screen bg-background">
+      {/* Header */}
+      <section className="pt-40 pb-16 bg-surface border-b border-border">
+        <div className="container mx-auto px-6 max-w-[1400px]">
+          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted mb-4">Analysis & News</div>
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8">
+            <h1 className="text-5xl md:text-7xl font-light text-brand leading-tight">
+              Market<br /><span className="font-medium">Insights</span>
+            </h1>
+            <p className="text-muted text-lg font-light max-w-lg pb-2">
+              News, market reports, and investment guides from Salaar Properties&apos; expert advisory team.
             </p>
-            <button className="text-sm font-semibold uppercase tracking-wider text-brand border-b border-brand pb-1 hover:opacity-70 transition-opacity">Read Article</button>
-          </div>
-          <div className="border border-border p-8 bg-surface">
-            <span className="text-xs font-semibold uppercase tracking-widest text-brand mb-2 block">Developer News</span>
-            <h3 className="text-2xl font-light text-brand mb-4">DHA Lahore Announces New Infrastructure Updates</h3>
-            <p className="text-muted text-sm font-light mb-6 line-clamp-3">
-              Recent road network expansions and commercial sector zoning are poised to increase the valuation of Phase 9 Prism and Phase 8 properties.
-            </p>
-            <button className="text-sm font-semibold uppercase tracking-wider text-brand border-b border-brand pb-1 hover:opacity-70 transition-opacity">Read Article</button>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Interactive Category Filter and Article Grid */}
+      <InsightsList />
+
+      {/* Newsletter CTA */}
+      <section className="bg-brand text-white py-20">
+        <div className="container mx-auto px-6 max-w-[800px] text-center">
+          <h2 className="text-3xl md:text-4xl font-light mb-4">Stay Ahead of the Market</h2>
+          <p className="text-white/60 font-light mb-10">Receive exclusive market reports and investment alerts directly from our advisory team.</p>
+          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input type="email" placeholder="Your email address" className="flex-1 bg-white/10 border border-white/20 text-white placeholder:text-white/40 px-4 py-3 outline-none focus:border-white transition-colors" />
+            <button className="bg-white text-brand px-6 py-3 text-sm font-semibold uppercase tracking-widest hover:bg-white/90 transition-colors whitespace-nowrap">Subscribe</button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

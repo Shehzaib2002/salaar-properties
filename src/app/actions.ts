@@ -6,11 +6,11 @@ export async function submitEnquiry(formData: FormData) {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
   const phone = formData.get("phone") as string;
-  const message = formData.get("message") as string;
+  const message = (formData.get("message") as string)?.trim() || "General property interest inquiry";
   const projectId = formData.get("projectId") as string | null;
 
-  if (!name || !phone || !message) {
-    return { error: "Name, phone, and message are required." };
+  if (!name || !phone) {
+    return { error: "Name and phone number are required." };
   }
 
   try {
